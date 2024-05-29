@@ -1,28 +1,20 @@
 const app = Vue.createApp({
     data() {
         return {
-            counter:0,
-            name   : "Amr kahla"
+            userInput    : "",
+            confirmInput : ""
         }
     },methods: {
-        submitForm(){
-            alert("aaaaaa")
+        showAlert(){
+            alert("any text of your choice")
         },
-        setName(event){
-            this.name = event.target.value;
+        saveOutput(event){
+            this.userInput = event.target.value;
         },
-        add(number)
-        {
-            this.counter = this.counter + number
+        confirmOutput(event){
+            this.confirmInput = event.target.value;
         },
-        reduce(number)
-        {
-            if(this.counter > 0)
-                {
-                    this.counter = this.counter - number
-                }
-        }
     },
 })
 
-app.mount("#events")
+app.mount("#assignment")
