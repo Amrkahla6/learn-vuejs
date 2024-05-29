@@ -16,14 +16,15 @@
 // buttonElm.addEventListener('click',addGoal)
 
 Vue.createApp({
-    data() {
+    data(){
         return {
-            goals : [],
-            enterdValue : "",
+            goals:[],
+            enterdValue:"",
         }
     },methods: {
-         addGoal(){
+        addGoal(){
             this.goals.push(this.enterdValue)
-        },
+            console.log(this.goals)
+        }
     },
-}).mount("#app")
+}).mount('#app')
