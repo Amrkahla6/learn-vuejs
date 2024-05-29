@@ -1,30 +1,22 @@
-// const buttonElm   = document.querySelector('button');
-// const inputEl     = document.querySelector('input');
-// const listEl      = document.querySelector('ul');
-
-// function addGoal()
-// {
-//     const enterValue       = inputEl.value;
-//     const listItemEl       = document.createElement('li');
-//     listItemEl.textContent = enterValue;
-
-//     listEl.appendChild(listItemEl);
-
-//     inputEl.value = '';
-// }
-
-// buttonElm.addEventListener('click',addGoal)
-
-Vue.createApp({
-    data(){
+const app = Vue.createApp({
+    data() {
         return {
-            goals:[],
-            enterdValue:"",
+            courseGoalA :  "Finish the course and learn vue",
+            courseGoalB : "Master Vue and build amazing app",
+            vueLink     : "https://vuejs.org/guide/quick-start.html"
         }
     },methods: {
-        addGoal(){
-            this.goals.push(this.enterdValue)
-            console.log(this.goals)
+        outputGoal()
+        {
+            const randomNumber = Math.random();
+            if(randomNumber < 0.5){
+                return this.courseGoalA;
+            }else{
+                return this.courseGoalB;
+            }
         }
     },
-}).mount('#app')
+});
+
+app.mount("#user-goal")
+
