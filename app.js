@@ -1,21 +1,28 @@
 const app = Vue.createApp({
     data() {
         return {
-            name           : "Amr kaha",
-            age            : 28,
-            sourceImage    : "https://picsum.photos/200/300"
+            counter:0,
+            name   : "Amr kahla"
         }
     },methods: {
-        calculateAge()
-        {
-            return this.age + 5;
+        submitForm(){
+            alert("aaaaaa")
         },
-
-        favoriteNumber()
+        setName(event){
+            this.name = event.target.value;
+        },
+        add(number)
         {
-            return Math.random();
+            this.counter = this.counter + number
+        },
+        reduce(number)
+        {
+            if(this.counter > 0)
+                {
+                    this.counter = this.counter - number
+                }
         }
     },
-});
+})
 
-app.mount("#assignment")
+app.mount("#events")
