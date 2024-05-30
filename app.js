@@ -1,17 +1,29 @@
 const app = Vue.createApp({
     data() {
-      return { goals: [] ,goal:""};
+      return {
+        task              : "",
+        listTasks         : [],
+        vistabilityToggel : true,
+        buttonText        : "Hide List" 
+      }
     },methods: {
-        addGoal()
+        addTask()
         {
-            console.log(this.goals)
-            this.goals.push(this.goal)
+            this.listTasks.push(this.task)
         },
-        removeItem(idx)
+
+        taskVisability()
         {
-            this.goals.splice(idx,1)
+            this.vistabilityToggel = !this.vistabilityToggel;
+            if(this.vistabilityToggel === true)
+                {
+                    return this.buttonText = 'Hide List';
+                }else{
+                    return this.buttonText = 'Show List';
+                }
         }
+
     },
   });
   
-  app.mount('#user-goals');
+  app.mount('#assignment');
