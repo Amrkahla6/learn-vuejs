@@ -1,29 +1,26 @@
 const app = Vue.createApp({
     data() {
         return {
-            boxASelected : false,
-            boxBSelected : false,
-            boxCSelected : false,
+            userInput : "",
+            visiable  : true,
+            color     : ""
         }
     },methods: {
-        boxSelected(box)
+        toggelPara()
         {
-            if(box === 'A'){
-                this.boxASelected = !this.boxASelected;
-            }else if(box === 'B')
-            {
-                this.boxBSelected = !this.boxBSelected; 
-            }else if(box === 'C')
-            {
-                this.boxCSelected = !this.boxCSelected; 
-            }
-        }  
-    },computed:{
-        boxAClass()
-        {
-            return {active: this.boxASelected};
+            this.visiable = !this.visiable;
         }
-    } 
+    },computed:{
+        paraClass()
+        {
+            return {
+                user1       : this.userInput === 'user1',
+                user2       : this.userInput === 'user2',
+                visiable    : this.visiable,
+                hidden      : !this.visiable
+            }
+        }
+    }
 })
 
-app.mount("#styling")
+app.mount("#assignment")
