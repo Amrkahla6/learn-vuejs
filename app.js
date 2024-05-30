@@ -1,37 +1,29 @@
 const app = Vue.createApp({
     data() {
         return {
-            number:0,
-        
+            boxASelected : false,
+            boxBSelected : false,
+            boxCSelected : false,
         }
     },methods: {
-       addNumber(num)
-       {
-        this.number = this.number + num;
-       }
-    },watch:{
-        result()
+        boxSelected(box)
         {
-            const that = this;
-            setTimeout(function(){
-                that.number = 0;
-            },5000)
-        }
+            if(box === 'A'){
+                this.boxASelected = !this.boxASelected;
+            }else if(box === 'B')
+            {
+                this.boxBSelected = !this.boxBSelected; 
+            }else if(box === 'C')
+            {
+                this.boxCSelected = !this.boxCSelected; 
+            }
+        }  
     },computed:{
-        result()
+        boxAClass()
         {
-          
-            if(this.number < 37)
-                {
-                    return  "Not there yet";
-                }else if(this.number === 37)
-                {
-                    return this.number;
-                }else{
-                    return "Too much!";
-                }
+            return {active: this.boxASelected};
         }
-    }
+    } 
 })
 
-app.mount("#assignment")
+app.mount("#styling")
