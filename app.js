@@ -1,20 +1,37 @@
 const app = Vue.createApp({
     data() {
         return {
-            userInput    : "",
-            confirmInput : ""
+            number:0,
+        
         }
     },methods: {
-        showAlert(){
-            alert("any text of your choice")
-        },
-        saveOutput(event){
-            this.userInput = event.target.value;
-        },
-        confirmOutput(event){
-            this.confirmInput = event.target.value;
-        },
-    },
+       addNumber(num)
+       {
+        this.number = this.number + num;
+       }
+    },watch:{
+        result()
+        {
+            const that = this;
+            setTimeout(function(){
+                that.number = 0;
+            },5000)
+        }
+    },computed:{
+        result()
+        {
+          
+            if(this.number < 37)
+                {
+                    return  "Not there yet";
+                }else if(this.number === 37)
+                {
+                    return this.number;
+                }else{
+                    return "Too much!";
+                }
+        }
+    }
 })
 
 app.mount("#assignment")
