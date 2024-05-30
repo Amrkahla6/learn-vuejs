@@ -1,26 +1,17 @@
 const app = Vue.createApp({
     data() {
-        return {
-            userInput : "",
-            visiable  : true,
-            color     : ""
-        }
+      return { goals: [] ,goal:""};
     },methods: {
-        toggelPara()
+        addGoal()
         {
-            this.visiable = !this.visiable;
-        }
-    },computed:{
-        paraClass()
+            console.log(this.goals)
+            this.goals.push(this.goal)
+        },
+        removeItem(idx)
         {
-            return {
-                user1       : this.userInput === 'user1',
-                user2       : this.userInput === 'user2',
-                visiable    : this.visiable,
-                hidden      : !this.visiable
-            }
+            this.goals.splice(idx,1)
         }
-    }
-})
-
-app.mount("#assignment")
+    },
+  });
+  
+  app.mount('#user-goals');
